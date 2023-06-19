@@ -1,0 +1,34 @@
+<h2>Product Types Page</h2>
+<h3>Product Type Data</h3>
+<section>
+    <table id="product-types-table">
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.productTypeID}}</td>
+                <td>{{this.typeName}}</td>
+                <td>{{this.typeDescription}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <h3>Add a New Product Type</h3>
+    <form class="product-types" id="add-product-type-form" method="POST" action="/add-product-type">
+        <label for="input-typeName">Type Name:</label>
+        <input type="text" name="input-typeName" id="input-typeName" required placeholder="Plushie">
+
+        <label for="input-typeDesc">Type Description:</label>
+        <input type="text" name="input-typeDesc" id="input-Desc" required placeholder="A soft collector's toy">
+
+        <input type="submit" value="Add Product Type" />
+    </form>
+</section>

@@ -1,0 +1,66 @@
+<article><h2>Customers Page</h2>
+<h3>Customer Data</h3>
+</article>
+<section>
+    <table id="customers-table">
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.customerID}}</td>
+                <td>{{this.firstName}}</td>
+                <td>{{this.lastName}}</td>
+                <td>{{this.phoneNumber}}</td>
+                <td>{{this.streetAddress}}</td>
+                <td>{{this.streetAddress2}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.state}}</td>
+                <td>{{this.zip}}</td>
+                <td>{{this.emailAddress}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <article>
+    <h3>Add a New Customer</h3>
+    </article>
+    <form id="add-customer-form">
+        <label for="input-fname">First Name:</label>
+        <input class="fname" type="text" name="input-fname" id="input-fname" required placeholder="Emily">
+
+        <label for="input-lname">Last Name:</label>
+        <input class="lname" type="text" name="input-lname" id="input-lname" required placeholder="Dickinson">
+
+        <label for="input-phone">Phone Number:</label>
+        <input class="pnumber" type="number" name="input-phone" id="input-phone" min="1111111111" max="9999999999" placeholder="555-555-5555">
+
+        <label for="input-address1">Street Address (Line 1):</label>
+        <input class="street" type="text" name="input-address1" id="input-address1" required placeholder="1600 Penn Ave.">
+
+        <label for="input-address2">Street Address (Line 2)</label>
+        <input class="street" type="text" name="input-address2" id="input-address2" placeholder="West Wing">
+        
+        <label for="input-city">City:</label>
+        <input class="city" type="text" name="input-city" id="input-city" required placeholder="Springfield">
+        
+        <label for="input-state">State:</label>
+        <input class="state" type="text" name="input-state" id="input-state" maxlength="2" required placeholder="OR">
+
+        <label for="input-zip">ZIP Code:</label>
+        <input class="zipcode" type="number" name="input-zip" id="input-zip" min="11111" max="99999"required placeholder="24588">
+
+        <label for="input-email">Email Address:</label>
+        <input class="email" type="email" name="input-email" id="input-email" placeholder="retro@aol.com">
+
+        <input class="frm-button" type="submit" value="Add Customer" />
+    </form>
+</section>
+<script src='./js/add_customer.js' type="application/javascript"></script>

@@ -1,0 +1,50 @@
+<h2>Sales Details Page</h2>
+<h3>Sales Details Data</h3>
+<section>
+    <table id="sales-details-table">
+        <thead>
+            <tr>
+                {{#each data.[0]}}
+                <th>
+                    {{@key}}
+                </th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.saleDetailID}}</td>
+                <td>{{this.orderDate}}</td>
+                <td>{{this.orderID}}</td>
+                <td>{{this.firstName}}</td>
+                <td>{{this.lastName}}</td>
+                <td>{{this.productName}}</td>
+                <td>${{this.salePrice}}</td>
+                <td>{{this.qtyPurchased}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <h3>Add a Transaction to Order</h3>
+    <form id="add-sales-details-form" method="POST" action="/add-sales-details">
+        <label for="input-order">Order:</label>
+        <select name="input-order" id="input-order" required>
+            {{#each sales}}
+            <option value="{{this.orderID}}">{{this.orderID}} - {{this.orderDate}} {{this.lastName}}</option>
+            {{/each}}
+        </select></br>
+
+        <label for="input-product">Product:</label>
+        <select name="input-product" id="input-product" required>
+            {{#each products}}
+            <option value="{{this.productID}}">{{this.name}}</option>
+            {{/each}}
+        </select></br>
+
+        <label for="input-qty">Quantity:</label>
+        <input type="number" name="input-qty" id="input-qty" required placeholder="7">
+
+        <input type="submit" value="Add Product" />
+    </form>
+</section>
